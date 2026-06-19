@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Label.it — Energy Advisory for International Property Investors</title>
+    <style>
+        :root {
+            --color-bg: #ffffff;
+            --color-bg-soft: #faf8f5;
+            --color-bg-softer: #f5f3f0;
+            --color-text: #2d2520;
+            --color-text-light: #6b6360;
+            --color-text-lighter: #9a9189;
+            --color-border: #e8e3dd;
+            --color-accent: #a89968;
+            --color-accent-dark: #8b7d54;
+            --color-accent-light: #f0ebe2;
+            --color-success: #6b8e6b;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            color: var(--color-text);
+            background: var(--color-bg);
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-text);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 70px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 3rem;
+            padding-bottom: 3.5rem;
+            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+        }
+
+        .hero-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.8rem;
+            opacity: 0.95;
+        }
+
+        .hero-headline {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.98;
+            letter-spacing: -0.2px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        button, .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            letter-spacing: 0.3px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--color-accent);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--color-text);
+            letter-spacing: -0.6px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--color-text-light);
+            line-height: 1.7;
+            max-width: 680px;
+            margin: 0 auto;
+            font-weight: 400;
+            letter-spacing: -0.2px;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--color-bg);
+            padding: 4rem 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3.5rem;
+        }
+
+        .service-card {
+            padding: 2.75rem 2.25rem;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            transition: var(--transition);
+            position: relative;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .service-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            border-color: var(--color-accent);
+        }
+
+        .service-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            background: var(--color-accent-light);
+            color: var(--color-accent);
+            border-radius: var(--radius-md);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--color-text);
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .service-card p {
+            color: var(--color-text-light);
+            line-height: 1.7;
+            font-size: 0.95rem;
+            letter-spacing: -0.1px;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background: var(--color-bg-soft);
+            padding: 4rem 2rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3.5rem;
+        }
+
+        .portfolio-item {
+            padding: 2.25rem;
+            background: var(--color-bg);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+            transition: var(--transition);
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+        }
+
+        .portfolio-item:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+            transform: translateY(-1px);
+        }
+
+        .portfolio-stat {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-label {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            font-weight: 500;
+        }
+
+        /* Process Section */
+        .process {
+            background: var(--color-bg);
+            padding: 4rem 2rem;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3.5rem;
+        }
+
+        .process-step {
+            padding: 2.5rem 2rem;
+            background: var(--color-bg-softer);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .process-step:hover {
+            border-color: var(--color-accent);
+            background: var(--color-bg-soft);
+        }
+
+        .process-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            background: var(--color-accent);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-text);
+            font-weight: 600;
+        }
+
+        .process-step p {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+        .features {
+            background: var(--color-bg);
+            padding: 4rem 2rem;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3.5rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .feature-check {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: var(--color-accent-light);
+            border-radius: 50%;
+            color: var(--color-accent);
+            font-weight: 700;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text {
+            flex: 1;
+        }
+
+        .feature-text h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 0.35rem;
+        }
+
+        .feature-text p {
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: var(--color-bg-soft);
+            padding: 4rem 2rem;
+        }
+
+        .faq-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            margin-top: 3.5rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 1.5rem;
+            background: var(--color-bg);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-text);
+            text-align: left;
+            letter-spacing: -0.2px;
+        }
+
+        .faq-question:hover {
+            background: var(--color-bg-softer);
+            color: var(--color-accent);
+        }
+
+        .faq-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--color-accent-light);
+            border-radius: 50%;
+            color: var(--color-accent);
+            font-size: 1.25rem;
+            font-weight: 700;
+            flex-shrink: 0;
+            transition: var(--transition);
+            margin-left: 1rem;
+        }
+
+        .faq-item.active .faq-toggle {
+            background: var(--color-accent);
+            color: white;
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: var(--color-bg-softer);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 1.5rem;
+            border-top: 1px solid var(--color-border);
+        }
+
+        .faq-answer p {
+            color: var(--color-text-light);
+            line-height: 1.7;
+            font-size: 0.95rem;
+            letter-spacing: -0.1px;
+            margin: 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--color-bg);
+            padding: 4rem 2rem 6rem 2rem;
+        }
+
+        .contact-wrapper {
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--color-bg-soft);
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+        }
+
+        .form-group {
+            margin-bottom: 1.75rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.65rem;
+            font-weight: 600;
+            color: var(--color-text);
+            font-size: 0.95rem;
+            letter-spacing: -0.15px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 1.05rem;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: var(--transition);
+            background: var(--color-bg);
+            color: var(--color-text);
+        }
+
+        input::placeholder {
+            color: var(--color-text-lighter);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(168, 153, 104, 0.08);
+            background: var(--color-bg);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .form-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .form-buttons button {
+            width: 100%;
+            padding: 1.1rem;
+            font-size: 1rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--color-accent);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-text);
+            color: white;
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            margin-bottom: 0.6rem;
+            opacity: 0.85;
+            font-size: 0.95rem;
+            letter-spacing: -0.1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .hero {
+                padding-top: 2rem;
+                padding-bottom: 2.5rem;
+            }
+
+            .hero-headline {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-grid, .portfolio-grid, .process-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            button, .btn {
+                width: 100%;
+            }
+
+            .form-buttons {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-question {
+                padding: 1.25rem;
+            }
+
+            .faq-item.active .faq-answer {
+                padding: 1.25rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            header {
+                position: relative;
+                margin-bottom: 0.5rem;
+            }
+
+            nav {
+                padding: 1rem 1.5rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.8rem;
+                font-size: 0.85rem;
+            }
+
+            main {
+                margin-top: 0;
+            }
+
+            .hero {
+                padding: 1rem 1rem;
+            }
+
+            .hero-headline {
+                font-size: 1.5rem;
+                margin-bottom: 0.75rem;
+                line-height: 1.2;
+            }
+
+            .hero-desc {
+                font-size: 1rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .cta h2 {
+                font-size: 1.75rem;
+            }
+
+            button, .btn {
+                padding: 0.95rem 1.5rem;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="energy-label.html" class="logo">Label.it</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#features">Benefits</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="energy-label.html" style="color: var(--color-accent); font-weight: 600;">Back to Main</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <span class="hero-label">For International Property Investors</span>
+                    <h1 class="hero-headline">Strategic energy optimization for your residential portfolio</h1>
+                    <p class="hero-desc">Maximize ROI on your Dutch residential properties with professional energy assessments, technical due diligence, and upgrade recommendations tailored for portfolio-scale investing.</p>
+                    <div class="button-group">
+                        <button class="btn btn-primary">Request consultation</button>
+                        <button class="btn btn-secondary">Learn more</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Investor Services</h2>
+                    <p class="section-subtitle">Comprehensive support designed specifically for international investors managing multiple properties in the Netherlands.</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h3>Portfolio energy scan</h3>
+                        <p>Complete energy assessment across all your properties with comparative analysis, compliance verification, and performance benchmarking.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🔍</div>
+                        <h3>Technical due diligence</h3>
+                        <p>In-depth technical evaluation of building systems, compliance status, and risk assessment before acquisition or significant capital investment.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🗺️</div>
+                        <h3>Upgrade roadmap</h3>
+                        <p>Prioritized improvement recommendations that balance energy efficiency gains with renovation costs and rental market positioning.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">💰</div>
+                        <h3>ROI-driven advice</h3>
+                        <p>Strategic recommendations focused on financial returns—improved rental rates, lower operational costs, and increased property value.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">📄</div>
+                        <h3>Compliance documentation</h3>
+                        <p>Complete government-registered energy labels for all properties with English and Chinese documentation for your international operations.</p>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🤝</div>
+                        <h3>Ongoing support</h3>
+                        <p>Dedicated account management, quarterly performance reviews, and proactive guidance on regulatory changes and market opportunities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Why Choose Label.it for Portfolio Investing</h2>
+                    <p class="section-subtitle">Experience and scale designed for serious investors managing multiple residential properties.</p>
+                </div>
+
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="portfolio-stat">50+</div>
+                        <div class="portfolio-label">Properties assessed annually</div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-stat">€2M+</div>
+                        <div class="portfolio-label">Value optimized through our advice</div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-stat">15%</div>
+                        <div class="portfolio-label">Average rental yield improvement</div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-stat">24hrs</div>
+                        <div class="portfolio-label">Typical turnaround for assessments</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="process">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Process</h2>
+                    <p class="section-subtitle">Streamlined approach to portfolio assessment and optimization.</p>
+                </div>
+
+                <div class="process-grid">
+                    <div class="process-step">
+                        <div class="process-number">1</div>
+                        <h3>Discovery</h3>
+                        <p>Initial consultation to understand your portfolio, investment goals, and specific requirements across your properties.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="process-number">2</div>
+                        <h3>Assessment</h3>
+                        <p>Comprehensive technical evaluation of each property with energy analysis, compliance review, and upgrade potential.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="process-number">3</div>
+                        <h3>Strategy</h3>
+                        <p>Detailed recommendations prioritized by ROI impact, with implementation timeline and estimated returns on investment.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="process-number">4</div>
+                        <h3>Implementation</h3>
+                        <p>Ongoing support throughout property improvements with supplier coordination and compliance verification.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Key Benefits</h2>
+                    <p class="section-subtitle">What sets our investor services apart.</p>
+                </div>
+
+                <div class="features-list">
+                    <div class="feature-item">
+                        <div class="feature-check">✓</div>
+                        <div class="feature-text">
+                            <h4>Multi-language support</h4>
+                            <p>All documentation and reports in English and Traditional Chinese for seamless international operations.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-check">✓</div>
+                        <div class="feature-text">
+                            <h4>Portfolio-level pricing</h4>
+                            <p>Competitive rates for multiple properties with volume discounts and flexible engagement models.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-check">✓</div>
+                        <div class="feature-text">
+                            <h4>Government-registered labels</h4>
+                            <p>All assessments registered with Dutch authorities and compliant with latest energy regulations.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-check">✓</div>
+                        <div class="feature-text">
+                            <h4>Certified specialists</h4>
+                            <p>Team of government-certified energy assessors with 10+ years experience in Dutch real estate.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-check">✓</div>
+                        <div class="feature-text">
+                            <h4>Fast turnaround</h4>
+                            <p>Most portfolio assessments completed within 24-48 hours with priority handling for large portfolios.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-check">✓</div>
+                        <div class="feature-text">
+                            <h4>ROI-focused recommendations</h4>
+                            <p>All upgrade suggestions evaluated for financial impact, not just environmental benefit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Investor FAQ</h2>
+                    <p class="section-subtitle">Common questions about our portfolio services.</p>
+                </div>
+
+                <div class="faq-wrapper">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How does portfolio pricing work?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We offer flexible pricing models for portfolio investors. Typically, prices per property decrease with portfolio size. A 5-property portfolio might see 20% savings, while 10+ properties could qualify for 30% discounts plus custom service packages. Contact us with your portfolio details for a custom quote.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What's included in the portfolio energy scan?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our portfolio scan includes: government-registered energy labels for each property, technical assessment reports, compliance verification against current Dutch regulations, comparative performance analysis across your portfolio, upgrade potential analysis, estimated improvement costs and timelines, and ROI calculations for recommended improvements.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How long does a portfolio assessment take?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Turnaround time depends on portfolio size and complexity. Individual property inspections take 2-3 hours each. For a 5-property portfolio, we typically complete all fieldwork within 2-3 days and deliver comprehensive reports within 5-7 working days. Larger portfolios are prioritized with dedicated project management.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>Can you help with properties in different Dutch cities?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes, we serve investors with properties across all of the Netherlands. We have regional specialists in major markets including Amsterdam, Rotterdam, The Hague, Utrecht, and other key investment areas. Geographic diversity is handled smoothly with coordinated scheduling and consolidated reporting.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>What ongoing support do you provide after the initial assessment?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Our investor packages include dedicated account management, quarterly performance updates on your portfolio's energy efficiency, updates on regulatory changes affecting your properties, proactive recommendations on emerging opportunities, and priority support for additional assessments or improvements needed throughout the year.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            <span>How do you calculate ROI on energy improvements?</span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We calculate ROI based on multiple factors: operational cost savings from reduced energy consumption, rental market value increase from improved energy rating, incentive programs and tax benefits available, property asset value appreciation, and typical payback periods for each recommended improvement. Each recommendation includes detailed financial projections.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Request Investor Consultation</h2>
+                    <p class="section-subtitle">Let's discuss your portfolio and how Label.it can optimize your Dutch real estate investments.</p>
+                </div>
+
+                <div class="contact-wrapper">
+                    <form id="investorForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+31 6 ..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Company / Investment Entity</label>
+                            <input type="text" id="company" name="company" placeholder="Optional">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="properties">Number of Properties *</label>
+                            <select id="properties" name="properties" required>
+                                <option value="">Select range</option>
+                                <option value="2-5">2-5 properties</option>
+                                <option value="6-10">6-10 properties</option>
+                                <option value="11-20">11-20 properties</option>
+                                <option value="20+">20+ properties</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Tell us about your portfolio and goals (optional)</label>
+                            <textarea id="message" name="message" placeholder="Property types, locations, investment timeline, specific challenges..."></textarea>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-primary">Submit inquiry</button>
+                            <button type="button" class="btn btn-secondary" onclick="contactWhatsApp()">WhatsApp</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to optimize your portfolio?</h2>
+                <p>Our investor specialists are standing by to discuss your property portfolio and investment goals.</p>
+                <button class="btn btn-primary">Schedule a consultation</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Label.it. All rights reserved.</p>
+        <p>Energy advisory for international property investors in the Netherlands.</p>
+    </footer>
+
+    <script>
+        // FAQ functionality
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.closest('.faq-item');
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('investorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your inquiry! Our investor team will contact you within 24 hours.');
+            this.reset();
+        });
+
+        // WhatsApp contact
+        function contactWhatsApp() {
+            const name = document.getElementById('name').value || 'Investor';
+            const properties = document.getElementById('properties').value || 'properties';
+            const message = encodeURIComponent(`Hi, I'm ${name} and I have ${properties} residential properties in the Netherlands. I'd like to discuss portfolio energy optimization and ROI strategies.`);
+            window.open(`https://wa.me/31612345678?text=${message}`);
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

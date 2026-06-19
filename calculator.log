@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/davidotto/Desktop/VS Studio/Website/calculator.py", line 1, in <module>
+    from fastapi import FastAPI
+ModuleNotFoundError: No module named 'fastapi'
