@@ -127,8 +127,24 @@
     padding-bottom: 2.5rem;
     background: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), 
                 url('hero back.jpg') center/cover no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;  /* Changed from fixed */
+    background-position: center center;
+    background-size: cover;
     min-height: 800px;
+}
+
+/* Mobile-specific adjustment */
+@media (max-width: 768px) {
+    .hero {
+        background-attachment: scroll;
+        min-height: 600px;  /* Shorter on mobile */
+    }
+}
+
+@media (max-width: 640px) {
+    .hero {
+        min-height: 500px;
+    }
         }
 
         .hero-content {
@@ -282,8 +298,12 @@
         }
 
         .hero-block.primary .btn-secondary {
-            border-color: white;
-            color: white;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+    font-size: 1rem;
+    box-shadow: none;
         }
 
         .btn-secondary:hover {
@@ -293,7 +313,9 @@
         }
 
         .hero-block.primary .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: transparent;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: underline;
         }
 
         /* Trust Bar */
