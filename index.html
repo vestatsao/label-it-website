@@ -1358,7 +1358,7 @@
 
                         <div class="form-buttons">
                             <button type="submit" class="btn btn-primary">Submit inquiry</button>
-                            <button type="button" class="btn btn-secondary" onclick="contactWhatsApp()">WhatsApp</button>
+                            <button type="button" class="btn btn-secondary" onclick="contactEmail()">Email</button>
                         </div>
                     </form>
                 </div>
@@ -1456,12 +1456,21 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
     });
 });
 
-        // WhatsApp contact
-        function contactWhatsApp() {
+        // Email contact
+        function contactEmail() {
             const name = document.getElementById('name').value || 'Visitor';
             const property = document.getElementById('property').value || 'property inquiry';
-            const message = encodeURIComponent(`Hi, I'm ${name} and I'm interested in getting an energy label for my ${property}.`);
-            window.open(`https://wa.me/31683378461?text=${message}`);
+            const subject = encodeURIComponent('Energy label inquiry');
+    const body = encodeURIComponent(
+        `Hi,
+
+I'm ${name} and I'm interested in getting an energy label for my ${property}.
+
+Kind regards,
+${name}`
+    );
+
+    window.location.href = `mailto:info@labeldotit.nl?subject=${subject}&body=${body}`;
         }
 
         // Smooth scroll for mobile
