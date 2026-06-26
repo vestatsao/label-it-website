@@ -386,7 +386,38 @@
             font-weight: 400;
             letter-spacing: -0.2px;
         }
+/* Energy Advisor*/
+.about-advisor {
+    max-width: 920px;
+    margin: 2.5rem auto 0;
+    padding-top: 1.5rem;
+    text-align: center;
+    border-top: 1px solid rgba(31, 41, 51, 0.12);
+}
 
+.about-label {
+    margin: 0 0 0.75rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    font-weight: 600;
+}
+
+.about-advisor p:not(.about-label) {
+    max-width: 920px;
+    margin: 0 auto 0.8rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+}
+
+.about-advisor a {
+    color: inherit;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
         /* Process Section */
         .process {
             background: var(--color-bg);
@@ -1087,6 +1118,34 @@
                 padding: 0.95rem 1.5rem;
                 font-size: 0.95rem;
             }
+            .contact-email {
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    color: #6b7280;
+}
+
+.contact-email a {
+    color: #2f6f8f;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-email a:hover {
+    text-decoration: underline;
+}
+.section-subtitle a {
+        color: inherit;
+        text-decoration: underline;
+        font-weight: 500;
+    }
+        /* For copy email button is clicked */
+        .copy-confirmation {
+            display: none;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            color: var(--color-muted);
+  }
+
         }
     </style>
 </head>
@@ -1131,7 +1190,16 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>          
+<div class="about-advisor">
+    <p class="about-label">Meet your energy advisor</p>
+    <p>
+        <strong>Vesta Tsao</strong> supports internationals in the Netherlands with clear, practical energy label advice in English and Chinese.
+    </p>
+    <a href="https://www.linkedin.com/in/vestatsao/" target="_blank" rel="noopener noreferrer">
+        Connect on LinkedIn
+    </a>
+</div>
 
             <!-- Trust Bar -->
             <div class="trust-bar">
@@ -1152,6 +1220,7 @@
                     </div>
                 </div>
             </div>
+
         </section>
 
 
@@ -1320,6 +1389,9 @@
                 <div class="section-header">
                     <h2 class="section-title">Ready to get your energy label?</h2>
                     <p class="section-subtitle">Send us your property details and we'll provide a quote and next steps within 24 hours.</p>
+                    <p class="section-subtitle">
+        Or email us directly at: <a href="mailto:info@labeldotit.nl">info@labeldotit.nl</a>
+    </p>
                 </div>
 
                 <div class="contact-wrapper">
@@ -1356,10 +1428,17 @@
                             <textarea id="message" name="message" placeholder="Location, timeline, any specific questions..."></textarea>
                         </div>
 
-                        <div class="form-buttons">
-                            <button type="submit" class="btn btn-primary">Submit inquiry</button>
-                            <button type="button" class="btn btn-secondary" onclick="contactEmail()">Email</button>
-                        </div>
+                      <div class="form-buttons">
+    <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+
+    <button type="button" class="btn btn-secondary" onclick="copyEmail()">
+        Copy Email
+    </button>
+</div>
+
+<p id="copy-confirmation" style="display: none;">
+    Email address copied
+</p>
                     </form>
                 </div>
             </div>
@@ -1457,20 +1536,21 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
 });
 
         // Email contact
-        function contactEmail() {
-            const name = document.getElementById('name').value || 'Visitor';
-            const property = document.getElementById('property').value || 'property inquiry';
-            const subject = encodeURIComponent('Energy label inquiry');
-    const body = encodeURIComponent(
-        `Hi,
+       function copyEmail() {
+    const email = 'info@labeldotit.nl';
 
-I'm ${name} and I'm interested in getting an energy label for my ${property}.
+    navigator.clipboard.writeText(email).then(() => {
+        const confirmation = document.getElementById('copy-confirmation');
+        if (confirmation) {
+            confirmation.style.display = 'block';
 
-Kind regards,
-${name}`
-    );
-
-    window.location.href = `mailto:info@labeldotit.nl?subject=${subject}&body=${body}`;
+            setTimeout(() => {
+                confirmation.style.display = 'none';
+            }, 2500);
+        }
+    }).catch(() => {
+        alert('Please copy this email address: ' + email);
+    });
         }
 
         // Smooth scroll for mobile
